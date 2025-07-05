@@ -11,32 +11,20 @@ Or you can add these files to an Oerleaf project.
 
 Suggested extensions in VSCode for this (these are the ones I used):
 
-Name: GitHub Copilot
-Id: GitHub.copilot
-Description: Your AI pair programmer
-Version: 1.338.0
-Publisher: GitHub
+Name: GitHub Copilot, 
+Version: 1.338.0, 
 VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
 
-Name: LaTeX Workshop
-Id: James-Yu.latex-workshop
-Description: Boost LaTeX typesetting efficiency with preview, compile, autocomplete, colorize, and more.
-Version: 10.10.0
-Publisher: James Yu
+Name: LaTeX Workshop, 
+Version: 10.10.0, 
 VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop
 
-Name: LTeX+ – grammar/spell checking using LanguageTool
-Id: ltex-plus.vscode-ltex-plus
-Description: Grammar/spell checker using LanguageTool with support for LaTeX, Markdown, and others
-Version: 15.5.1
-Publisher: LTeX+
+Name: LTeX+ – grammar/spell checking using LanguageTool, 
+Version: 15.5.1, 
 VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ltex-plus.vscode-ltex-plus
 
-Name: Todo Tree
-Id: Gruntfuggly.todo-tree
-Description: Show TODO, FIXME, etc. comment tags in a tree view
-Version: 0.0.226
-Publisher: Gruntfuggly
+Name: Todo Tree, 
+Version: 0.0.226, 
 VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
 
 
