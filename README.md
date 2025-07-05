@@ -27,5 +27,9 @@ Name: Todo Tree,
 Version: 0.0.226, 
 VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
 
+Name: Draw.io Integration, 
+Version: 1.9.0, 
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio
+
 
 
