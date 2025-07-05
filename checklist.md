@@ -19,7 +19,7 @@
 - Check spelling
 - Check for emdashes from AI use
 - Spell out numbers from 0-19 or something
-- Check that the number and unit are on the same line (use 12~V or 4~MHz)
+- Check that the number and unit are on the same line (use `12~V` or `4~MHz`)
 - Should be around 70-80 pages
 - Choose either binary or hexadecimal consistently
   
