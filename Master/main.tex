@@ -1,0 +1,257 @@
+% Master thesis main document
+% Author: Tea B.
+% Revision: Ilya K.
+% -------------------------------------------------------------
+% ---- DOCUMENT INITIALIZATION AND PACKAGE IMPORTS
+% -------------------------------------------------------------
+\documentclass[12pt, twoside, openright]{book} %openany for report
+
+\input{Master/include}
+
+\usepackage[a4paper,%
+            left=3cm,right=2.5cm,top=2.5cm,bottom=2.5cm,%
+            includehead, includefoot]{geometry}
+
+\linenumbers %REMEMBER TO COMMENT OUT FOR FINAL VERSION!!!
+
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{tabledarkgray}{HTML}{CFCFCF}
+\definecolor{tablelightgray}{HTML}{E6E6E6}
+% Define colours for tables, fonts, anything here! Much easier to change later 
+
+\lstset{ 
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+ % basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  %captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  %firstnumber=1000,                % start line enumeration with line 1000
+  %frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Python,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  %title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+% Set up for code listings I use - Ilya
+% If you use this one, comment out line 25-52
+\lstdefinestyle{my_style}{
+    basicstyle=\ttfamily\footnotesize,                              
+    numbers=left,
+    stepnumber=1,  
+    breaklines=true,                % sets automatic line breaking                               
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    frame=single,
+    rulecolor=\color{gray},
+    stringstyle=\color{mymauve},     % string literal style
+    numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+    commentstyle=\color{mygreen},    % comment style
+    keywordstyle=\color{blue}        % keyword style
+}
+\lstset{style=my_style}
+
+
+
+
+
+
+
+
+% -------------------------------------------------------------
+% ---- PACKAGE SET UP
+% -------------------------------------------------------------
+
+\graphicspath{{Master/figs/}}					% Path to graphics
+\pagestyle{fancy}						% Set page headers to fancy
+
+
+% Add symbols at the end of example and definitions
+\AtEndEnvironment{example}{\null\hfill $\lrcorner$}%
+\AtEndEnvironment{definition}{\null\hfill $\lrcorner$}%
+
+% Must run this command to use index
+\makeindex
+
+% Spacing in easylist items and rows/cols in diagrams
+\newcommand{\listSpace}{-0.25em}
+\newcommand{\diagramSpace}{3em}
+\setlength\arrayrulewidth{1.5 pt}
+
+% -------------------------------------------------------------
+% ---- MISC SET UP
+% -------------------------------------------------------------
+
+% Include new commands
+\input{Master/Tips&tricks/newcommands}
+
+% A command to add a blank page
+\newcommand\blankpage{%
+	\null
+	\newpage}
+
+% Header set up with fancyhdr
+\lhead[\nouppercase{\leftmark}]{\thepage} % EVEN, ODD
+\rhead[\thepage]{\nouppercase{\rightmark}} % EVEN, ODD
+\cfoot[]{}
+
+\pagestyle{fancy}
+\fancypagestyle{normal}{%
+	% Header set up with fancyhdr
+	\lhead[\nouppercase{\leftmark}]{\thepage} % EVEN, ODD
+	\rhead[\thepage]{\nouppercase{\rightmark}} % EVEN, ODD
+	\cfoot[]{}}
+\fancypagestyle{noheadername}{%
+	% Header set up with fancyhdr
+	\lhead[]{\thepage} % EVEN, ODD
+	\rhead[\thepage]{} % EVEN, ODD
+	\cfoot[]{}}
+
+% Declare first page in every chapter as 'fancy' pagestyle
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+	\thispagestyle{fancy}%
+	\global\@topnum\z@
+	\@afterindentfalse
+	\secdef\@chapter\@schapter}
+%\makeatother\setlength\bibitemsep{0.9\baselineskip}
+
+% Custom environment for comments
+\newenvironment{comment}{\begin{framed} \footnotesize \textcolor{red}{\textbf{Comment.}}}{\end{framed} \normalsize}
+
+% Set up for Acronyms
+\input{Master/acronyms.tex}
+
+% Set up for chapter title style
+\titleformat{\chapter}[display]
+  {\mdseries\large}
+  {\filleft\MakeUppercase{\chaptertitlename} \large\thechapter}
+  {1ex}
+  {\titlerule\vspace{2ex}\filright\Huge}
+  [\vspace{2ex}\titlerule]
+
+\setlength{\headheight}{14.5pt} % Set to 14.5pt to remove warning
+
+
+\begin{document}
+	
+	% ---------------------------------------------------------
+	% ---- Title page
+	% ---------------------------------------------------------
+	
+	\includepdf{cover/cover.pdf} %The pdf must be generated separately to avoid unwanted changes from the main 
+	\pagestyle{empty}
+	\afterpage{\blankpage}
+	\clearpage
+	
+	% ---------------------------------------------------------
+	% ---- DOCUMENT INTRODUCTION
+	% ---------------------------------------------------------
+	
+
+	\pagenumbering{roman}
+   
+    \chapter*{Abstract}
+    \addcontentsline{toc}{chapter}{Abstract}
+    \input{Master/chapters/abstract}
+    \clearpage
+    
+    
+    \chapter*{Acknowledgments}
+    \addcontentsline{toc}{chapter}{Acknowledgements}
+    \input{Master/chapters/acknowledgements}
+    \clearpage
+
+    \chapter*{Generative AI Declaration}
+    \addcontentsline{toc}{chapter}{Generative AI Declaration}
+    \input{Master/chapters/ai_declaration.tex}
+    \clearpage 
+    
+    % Now the table of contents
+	\tableofcontents
+	\clearpage
+
+    \chapter*{Thesis Outline}
+    \addcontentsline{toc}{chapter}{Thesis Outline}
+    \input{Master/chapters/outline.tex}
+    \clearpage
+    
+    % Acronyms
+    \printnoidxglossary[style=mcolindex,title=Acronyms, 
+    toctitle=List of terms,nonumberlist]
+	\addcontentsline{toc}{chapter}{Acronyms}
+	
+	\listoffigures
+	\addcontentsline{toc}{chapter}{List of Figures}
+	\listoftables
+	\addcontentsline{toc}{chapter}{List of Tables}
+    \lstlistoflistings
+    \addcontentsline{toc}{chapter}{List of Listings}
+	\newpage
+    \mbox{}
+    \newpage
+
+	
+	% ---------------------------------------------------------
+	% ---- MAIN PART OF DOCUMENT
+	% ---------------------------------------------------------
+	
+	\pagenumbering{arabic}
+	\pagestyle{normal}
+	
+	\chapter{Introduction}
+        \label{chap:intro} % Use to reference chapters in text
+    	\input{Master/chapters/intro.tex}
+    
+	\chapter{Chapter Name}
+        \label{chap:chapter}
+        \input{Master/chapters/chapter.tex}
+	
+	\chapter{Summary and Conclusion}
+        \label{chap:outro}
+        \input{Master/chapters/outro.tex}
+        \newpage
+
+	% ---------------------------------------------------------
+	% ---- APPENDICES
+	% ---------------------------------------------------------
+	
+	\begin{appendices}
+    
+        \chapter{Title}
+            \label{app:title}
+            \input{chapters/appendix}
+     
+	\end{appendices}
+	
+
+	
+	
+	% ---------------------------------------------------------
+	% ---- BIBLIOGRAPHY
+	% ---------------------------------------------------------
+   \cleardoublepage{}\phantomsection\addcontentsline{toc}{chapter}{Bibliography}
+    \bibliography{final} % Name of the .bib file in use
+    \bibliographystyle{IEEEtran}
+    %\nocite{*} %prints all references
+\end{document}
+

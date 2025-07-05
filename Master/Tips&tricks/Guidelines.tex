@@ -1,0 +1,155 @@
+MSc thesis guidelines (LaTeX-based) 
+
+It is possible I forgot to include some packages… so Google.
+
+Other theses available at bora.uib.no 
+
+General outline of thesis:  
+\begin{itemize}
+    \item Abstract  
+        \item Objective of the thesis 
+        \item Used methods
+        \item Results
+        \item Used methods
+        \item Results
+        \item Conclusion
+        \item Simple language
+        \item No acronyms
+        \item One page
+    \item Acknowledgements
+    \item Acronyms/Glossary
+    \item Intro
+    	\item Motivation
+    	\item Background
+    	\item Introduce the question/challenge
+    	\item No direct results but rather a peek into what you have accomplished 
+    \item Main
+    \item Conclusion
+    	\item Answer the question
+    	\item Future work
+    	\item Don't introduce anything that hasn't been mentioned before
+    \item Appendices
+    \item Bibliography
+\end{itemize}
+
+Some writing rules: 
+\begin{itemize}
+	\item Avoid using should/would/could 
+	\item Choose one type of headings and stick to it (https://www.scribbr.com/academic-writing/capitalization-titles-headings/) 
+	\item Choose one style of writing lists and stick to it (full stop/comma/nothing after each item )
+	\item Choose one style of writing author names in bibliography and stick to it (Widlar, Bob vs Widlar, B.) 
+	\item Choose your terminology for your thesis and stick to it (e.g., if you refer to a trace on a PCB as trace, do not use wire/line/cable as a synonym) 
+	\item Check if you use your terminology correctly (Do you really describe demux? Or is it decoder? Is it noise on the measured signal? Or is it distortion?)  
+\end{itemize}
+
+Some styling rules: 
+\begin{itemize}
+	 \item Keep one sentence per LaTex line - the .tex will looks cleaner
+      \item Table caption above (\usepackage{float}  \floatstyle{plaintop} \restylefloat{table} in preamble) 
+	 \item Figure caption below (set as default by latex) 
+	 \item Always have full stop after the caption 
+	 \item All unoriginal figures need reference 
+	 \item Figures need clear caption 
+	 \item Do not wrap text around figures 
+	 \item All figures, tables, equations should have a reference in main text
+	 \item All equations must have numbering  
+	 \item Space between paragraphs  
+	 \item Chapter always starts on the odd page, on the right page ( \documentclass[12pt, a4paper, twoside, openright]{book} ). It doesn’t fix the content before chapters!!!  
+	 \item Space between value and unit. Best to use  unbreakable space (~) like this 30~s.
+	 \item Space between text and parentheses
+	 \item Use \times in math mode, also in text 
+	 \item \usepackage{siunitx} $\SI{30}{\second}$  
+\end{itemize}
+
+\textbf{Bibliography}
+
+\nocite{*} %prints all references 
+
+If you use \cite in captions and you want to have references in Bib in order of appearance, use \usepackage{notoccite}  
+
+BibTex entry types explained here https://www.andy-roberts.net/res/writing/latex/bibentries.pdf 
+
+How to add a website to a bibtex file: use the @misc annotation, the entry should look like this: 
+
+@misc{web-page-citekey, 
+
+title = {{Title of th webpage}}, 
+
+year = {2018}, 
+
+author = {{Name of author of the webpage}}, 
+
+month = {5}, 
+
+publisher = {company/person that owns the website}, 
+
+url = {http::/www.webside.com/}, 
+
+urldate = {2020-05-16} 
+
+} 
+
+Others:
+\begin{itemize}
+	\item https://www.overleaf.com/learn/latex/glossaries    use \usepackage{glossary-mcols} if you want the acronyms in columns  
+	\item \pagenumbering{roman} before Abstract, Acknowledgements, Table of Contents, List of Figures, List of Tables \pagenumbering{arabic} main chapters 
+	\item Fancy chapter titles \usepackage{titlesec} 
+	\item https://docs.google.com/presentation/d/1eWx8phUQISXhc5TsaiAi6_PavH1HyyRRmrymQ8VabxQ/edit#slide=id.ge260ecbfc3_0_0
+	\item https://thesiswhisperer.com/
+\end{itemize}
+
+% Set up for chapter title style 
+
+\titleformat{\chapter}[display] 
+
+ 			 {\mdseries\large} 
+
+ 			 {\filleft\MakeUppercase{\chaptertitlename} \large\thechapter} 
+
+ 		 	{1ex} 
+
+ 		 	{\titlerule\vspace{2ex}\filright\Huge} 
+
+ 	 [\vspace{2ex}\titlerule] 
+
+Margins!    \usepackage[a4paper,% 
+
+       	left=3cm,right=2.5cm,top=2.5cm,bottom=2.5cm,% 
+
+        	includehead, includefoot]{geometry} 
+
+Bibliography in main document at the end 
+
+  		 \cleardoublepage{}\phantomsection\addcontentsline{toc}{chapter}{Bibliography} 
+
+\bibliography{final} %this is the .bib file  
+
+\bibliographystyle{IEEEtran} % download the IEEEtran .bst file here 
+
+ 
+
+Figures: 
+
+To have a pretty figure list when calling \listoffigures 
+
+Use this snippet in the text where you want the figure to be (observe that the \caption has two blocks one for the \listoffigures and one for the figure itself). 
+
+\begin{figure} 
+
+\centering 
+
+\includegraphics{} 
+
+\caption[Caption in the list]{Caption under the figure} 
+
+\label{fig:my_label} 
+
+\end{figure} 
+
+ 
+
+	
+
+
+
+ 
